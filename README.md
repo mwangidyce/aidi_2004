@@ -1,2 +1,1 @@
-# Fish Classifier Assignment
-A fish classifier using the Random Forest Algorithm.
+# aidi_2004
