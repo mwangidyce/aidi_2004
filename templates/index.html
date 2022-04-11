@@ -18,18 +18,13 @@
 </head>
 <body>
   <div class="container">
-    <label>Weight</label>
-    <input type="number" name="weight_input" />
-    <label>Length 1</label>
-    <input type="number" name="length1" />
-    <label>Length 2</label>
-    <input type="number" name="length2" />
-    <label>Length 3</label>
-    <input type="number" name="length3" />
-    <label>Height</label>
-    <input type="number" name="height" />
-    <label>Width</label>
-    <input type="number" name="width" />
+    <label>Insert Image</label>
+    <input
+      type="file"
+      id="avatar"
+      name="avatar"
+      accept="image/png, image/jpeg"
+    />
     <button onclick="predict()">Predict</button>
     <span class="result noShow"></span>
   </div>
