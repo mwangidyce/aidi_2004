@@ -133,3 +133,5 @@ dmypy.json
 dsenv/
 .DS_Store
 data/
+old data/
+algorithm/models/shapes_model.h5
