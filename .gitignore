@@ -132,3 +132,4 @@ dmypy.json
 # Environment files
 dsenv/
 .DS_Store
+data/
