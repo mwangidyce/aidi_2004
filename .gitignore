@@ -127,3 +127,11 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Environment files
+dsenv/
+.DS_Store
+data/
+old data/
+algorithm/models/shapes_model.h5
