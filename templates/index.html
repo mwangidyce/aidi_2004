@@ -15,41 +15,61 @@
       margin-top: 0.5rem;
     }
   </style>
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/lumen/bootstrap.min.css"
+  />
 </head>
 <body>
   <div class="container">
-    <label>Insert Image</label>
+    <h3>Insert Image</h3>
     <input
       type="file"
       id="avatar"
       name="avatar"
       accept="image/png, image/jpeg"
+      onchange="get_files()"
     />
-    <button onclick="predict()">Predict</button>
+    <img id="output" />
+    <button onclick="predict()" class="btn btn-info">Predict</button>
     <span class="result noShow"></span>
   </div>
 
   <script>
-    function predict() {
+    let upload_files;
+
+    function get_files() {
+      const input_files = Array.from(document.getElementById("avatar").files);
+
+      const output = document.getElementById("output");
+
+      output.src = URL.createObjectURL(input_files[0]);
+      output.height = 300;
+      output.width = 350;
+
+      let formData = new FormData();
+
+      input_files.forEach((file) => {
+        formData.append(file.name, file);
+      });
+      // fetch("/upload/image", { method: "POST", body: formData });
+    }
+
+    async function predict() {
       const inputs = document.querySelectorAll(".container input");
       const obj = {};
       inputs.forEach((each) => {
         obj[each.name] = each.value;
       });
-      console.log(obj);
 
-      fetch("/classify", {
+      const response = await fetch("/classify", {
         method: "POST",
         body: JSON.stringify(obj),
         headers: {
           "Content-Type": "application/json",
         },
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
-          updateDom(data.prediction);
-        });
+      });
+      updateDom(response.json().prediction);
     }
 
     function updateDom(prediction) {
