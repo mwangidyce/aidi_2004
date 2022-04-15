@@ -141,3 +141,5 @@ algorithm/main.py
 algorithm/notebooks/models/
 algorithm/models/shapes_model-2.h5
 algorithm/models/shapes_model-1.h5
+model.ipynb
+model.ipynb
