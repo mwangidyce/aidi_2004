@@ -138,3 +138,4 @@ algorithm/models/shapes_model.h5
 algorithm/models/centernet_resnet101_v1_fpn_512x512_coco17_tpu-8/saved_model/variables/variables.data-00000-of-00001
 algorithm/models/centernet_resnet101_v1_fpn_512x512_coco17_tpu-8/checkpoint/ckpt-0.data-00000-of-00001
 algorithm/main.py
+algorithm/notebooks/models/
