@@ -31,14 +31,14 @@
       onchange="get_files()"
     />
     <img id="output" />
-    <button onclick="predict()" class="btn btn-info">Predict</button>
+    <button onclick="get_files()" class="btn btn-info">Predict</button>
     <span class="result noShow"></span>
   </div>
 
   <script>
     let upload_files;
 
-    function get_files() {
+    async function get_files() {
       const input_files = Array.from(document.getElementById("avatar").files);
 
       const output = document.getElementById("output");
@@ -52,24 +52,10 @@
       input_files.forEach((file) => {
         formData.append(file.name, file);
       });
-      // fetch("/upload/image", { method: "POST", body: formData });
-    }
-
-    async function predict() {
-      const inputs = document.querySelectorAll(".container input");
-      const obj = {};
-      inputs.forEach((each) => {
-        obj[each.name] = each.value;
-      });
-
-      const response = await fetch("/classify", {
-        method: "POST",
-        body: JSON.stringify(obj),
-        headers: {
-          "Content-Type": "application/json",
-        },
-      });
-      updateDom(response.json().prediction);
+      const response = await fetch("/upload/image", { method: "POST", body: formData });
+      const prediction = await response.json()
+      console.log(prediction);
+      updateDom(prediction.prediction)
     }
 
     function updateDom(prediction) {
