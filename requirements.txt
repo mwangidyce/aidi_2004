@@ -109,6 +109,7 @@ sklearn==0.0
 sniffio==1.2.0
 soupsieve==2.3.2
 stack-data==0.2.0
+tensorflow==2.3.0
 tensorboard==2.8.0
 tensorboard-data-server==0.6.1
 tensorboard-plugin-wit==1.8.1
