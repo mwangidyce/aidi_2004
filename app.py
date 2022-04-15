@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 def load_image(image):
     #load the image
-    
+
     # img = load_img(img, grayscale=False, target_size=(224, 224))
     #convert to array
 
@@ -70,4 +70,4 @@ def classify_api():
 
 
 if __name__ == '__main__':
-    app.run(debug=True, port=5001)
+    app.run(debug=False)
