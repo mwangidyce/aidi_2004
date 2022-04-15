@@ -23,7 +23,7 @@ def load_image(image):
 
 def predict(image: str):
     img = load_image(image)
-    model = load_model("algorithm/shapes_model.h5")
+    model = load_model("algorithm/models/shapes_model.h5")
     # model_location = "algorithm/models/shapes_model-2.h5"
 
     return model.predict(img)
@@ -54,11 +54,11 @@ def classify_api():
     prediction = predict(img)
     print(prediction[0][0])
 
-    shape = "Circle" if prediction[0][0] <= 0.65 else "Square"
+    shape = "Circle" if prediction[0][0] <= 0.52 else "Square"
 
     result = None
 
-    if prediction <= 0:
+    if prediction <= 0.5:
         result = f"The shape of the object is a {shape} (Confidence: {(1 - prediction[0][0]): .1%})"
     else:
         result = f"The shape of the object is a {shape} (Confidence: {(prediction[0][0]): .1%})"
