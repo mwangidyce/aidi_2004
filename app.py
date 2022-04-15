@@ -1,9 +1,6 @@
 from flask import Flask, render_template, request
-import pickle
 import numpy as np
 from PIL import Image
-from tensorflow.keras.preprocessing.image import load_img
-from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 
 app = Flask(__name__)
