@@ -23,7 +23,7 @@ def load_image(image):
 
 def predict(image: str):
     img = load_image(image)
-    model = load_model("algorithm/models/shapes_model.h5")
+    model = load_model("algorithm/models/shapes_model-final.h5")
     # model_location = "algorithm/models/shapes_model-2.h5"
 
     return model.predict(img)
