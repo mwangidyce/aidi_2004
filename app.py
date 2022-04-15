@@ -56,12 +56,15 @@ def classify_api():
 
     prediction = predict(img)
     print(prediction[0][0])
+
+    shape = "Circle" if prediction[0][0] <= 0.65 else "Square"
+
     result = None
 
     if prediction <= 0:
-        result = f"The shape of the object is a Circle (Confidence: {(1 - prediction[0][0]): .1%})"
+        result = f"The shape of the object is a {shape} (Confidence: {(1 - prediction[0][0]): .1%})"
     else:
-        result = f"The shape of the object is a Square (Confidence: {(prediction[0][0]): .1%})"
+        result = f"The shape of the object is a {shape} (Confidence: {(prediction[0][0]): .1%})"
 
     return {"prediction": result}
 
