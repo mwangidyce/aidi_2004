@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request
 import numpy as np
 from PIL import Image
-from tensorflow.keras.models import load_model
+import pickle
 
 app = Flask(__name__)
 
@@ -23,10 +23,8 @@ def load_image(image):
 
 def predict(image: str):
     img = load_image(image)
-    model = load_model("algorithm/models/shapes_model-final.h5")
-    # model_location = "algorithm/models/shapes_model-2.h5"
-
-    return model.predict(img)
+    with open("algorithm/models/model.pickle", "rb") as f:
+        model = pickle.load(f)
     # with open(model_location, "rb") as f:
     #     clf = pickle.load(f)
     # return list(clf.predict(np.array(arr).reshape(1, -1)))[0]
