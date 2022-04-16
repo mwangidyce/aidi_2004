@@ -25,8 +25,9 @@ def predict(image: str):
     img = load_image(image)
     with open("algorithm/models/model.pickle", "rb") as f:
         model = pickle.load(f)
-    # with open(model_location, "rb") as f:
-    #     clf = pickle.load(f)
+
+    return model.predict(img)
+
     # return list(clf.predict(np.array(arr).reshape(1, -1)))[0]
 
 
